@@ -57,9 +57,11 @@ footer.page-footer {
 }
 
 @font-face {
-  font-family: 'Material Icons';
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
+  src: url('/assets/font/Roboto-Bold-eot');
+  
   }
 
 .material-icons {

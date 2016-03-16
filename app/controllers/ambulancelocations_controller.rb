@@ -23,23 +23,25 @@
       def nearby
         @ambulancecookies = cookies["latitude"],cookies["longitude"]
           @hash = Gmaps4rails.build_markers(@ambulancecookies) do |ambulancecookie, marker|
-        marker.lat cookies["latitude"]
-        marker.lng cookies["longitude"]
-        
-       end
+          marker.lat cookies["latitude"]
+          marker.lng cookies["longitude"]
+          marker.infowindow "You are here."        
+         end
           @ambulancelocations = Ambulancelocation.near([cookies["latitude"], cookies["longitude"]], 20)
           @h = Gmaps4rails.build_markers(@ambulancelocations) do |ambulancelocation, marker|
-        marker.lat ambulancelocation.latitude
-        marker.lng ambulancelocation.longitude
-        marker.picture({
-                      :url    => "images/background1.jpg",
-                      :width  => "20",
-                      :height => "20",
-                      :scaledWidth => "64", # Scaled width is half of the retina resolution; optional
-                       :scaledHeight => "64", # Scaled width is half of the retina resolution; optional
-                     })
-        marker.infowindow ambulancelocation.address
-      end
+            marker.lat ambulancelocation.latitude
+            marker.lng ambulancelocation.longitude
+            marker.infowindow "$#{ambulancelocation.latitude}, #{ambulancelocation.address}"
+            marker.json({ :id => ambulancelocation.id })
+            # marker.picture({
+            #               :url    => "images/background1.jpg",
+            #               :width  => "20",
+            #               :height => "20",
+            #               :scaledWidth => "64", # Scaled width is half of the retina resolution; optional
+            #                :scaledHeight => "64", # Scaled width is half of the retina resolution; optional
+            #              })
+            marker.infowindow "anu"
+          end
       end
 
       # GET /ambulancelocations/1
