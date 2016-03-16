@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @ambulancelocation.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @ambulancelocation.longitude %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @ambulancelocation.address %>
+</p>
+
+<!-- <h3>Nearby Locations</h3>
+<ul>
+<% for ambulancelocation in @ambulancelocation.nearbys(10) %>
+  <li><%= link_to ambulancelocation.address, ambulancelocation %> (<%= ambulancelocation.distance.round(2) %> miles)</li>
+<% end %>
+</ul> -->
+
+<%= link_to 'Edit', edit_ambulancelocation_path(@ambulancelocation) %> |
+<%= link_to 'Back', ambulancelocations_path %>

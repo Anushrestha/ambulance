@@ -1,0 +1,85 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'bootstrap-material-design',
+1 verbose cli   '--user-install',
+1 verbose cli   '-n~/bin' ]
+2 info using npm@1.3.10
+3 info using node@v0.10.25
+4 verbose cache add [ 'bootstrap-material-design', null ]
+5 verbose cache add name=undefined spec="bootstrap-material-design" args=["bootstrap-material-design",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'bootstrap-material-design',
+6 verbose parsed url   path: 'bootstrap-material-design',
+6 verbose parsed url   href: 'bootstrap-material-design' }
+7 silly lockFile 4bc5e7fa-bootstrap-material-design bootstrap-material-design
+8 verbose lock bootstrap-material-design /home/anu/.npm/4bc5e7fa-bootstrap-material-design.lock
+9 silly lockFile 4bc5e7fa-bootstrap-material-design bootstrap-material-design
+10 silly lockFile 4bc5e7fa-bootstrap-material-design bootstrap-material-design
+11 verbose addNamed [ 'bootstrap-material-design', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile 94708cfa-bootstrap-material-design bootstrap-material-design@
+14 verbose lock bootstrap-material-design@ /home/anu/.npm/94708cfa-bootstrap-material-design.lock
+15 silly addNameRange { name: 'bootstrap-material-design', range: '*', hasData: false }
+16 verbose url raw bootstrap-material-design
+17 verbose url resolving [ 'https://registry.npmjs.org/', './bootstrap-material-design' ]
+18 verbose url resolved https://registry.npmjs.org/bootstrap-material-design
+19 info trying registry request attempt 1 at 17:14:50
+20 verbose etag "81ED9UNPPMEM7Y0TT08XRSHBV"
+21 http GET https://registry.npmjs.org/bootstrap-material-design
+22 http 304 https://registry.npmjs.org/bootstrap-material-design
+23 silly registry.get cb [ 304,
+23 silly registry.get   { date: 'Mon, 14 Mar 2016 11:29:51 GMT',
+23 silly registry.get     via: '1.1 varnish',
+23 silly registry.get     'cache-control': 'max-age=300',
+23 silly registry.get     etag: '"81ED9UNPPMEM7Y0TT08XRSHBV"',
+23 silly registry.get     age: '72',
+23 silly registry.get     connection: 'keep-alive',
+23 silly registry.get     'x-served-by': 'cache-ams4128-AMS',
+23 silly registry.get     'x-cache': 'HIT',
+23 silly registry.get     'x-cache-hits': '1',
+23 silly registry.get     'x-timer': 'S1457954991.744736,VS0,VE0',
+23 silly registry.get     vary: 'Accept' } ]
+24 verbose etag bootstrap-material-design from cache
+25 silly addNameRange number 2 { name: 'bootstrap-material-design', range: '*', hasData: true }
+26 silly addNameRange versions [ 'bootstrap-material-design',
+26 silly addNameRange   [ '0.3.0', '0.5.7', '0.5.8', '0.5.9' ] ]
+27 verbose addNamed [ 'bootstrap-material-design', '0.5.9' ]
+28 verbose addNamed [ '0.5.9', '0.5.9' ]
+29 silly lockFile 37ad181d-bootstrap-material-design-0-5-9 bootstrap-material-design@0.5.9
+30 verbose lock bootstrap-material-design@0.5.9 /home/anu/.npm/37ad181d-bootstrap-material-design-0-5-9.lock
+31 silly lockFile 428b3a70-tstrap-material-design-0-5-9-tgz https://registry.npmjs.org/bootstrap-material-design/-/bootstrap-material-design-0.5.9.tgz
+32 verbose lock https://registry.npmjs.org/bootstrap-material-design/-/bootstrap-material-design-0.5.9.tgz /home/anu/.npm/428b3a70-tstrap-material-design-0-5-9-tgz.lock
+33 verbose addRemoteTarball [ 'https://registry.npmjs.org/bootstrap-material-design/-/bootstrap-material-design-0.5.9.tgz',
+33 verbose addRemoteTarball   'cd508ad22f562e300e30a379503eb0a3d00a3dae' ]
+34 silly lockFile 428b3a70-tstrap-material-design-0-5-9-tgz https://registry.npmjs.org/bootstrap-material-design/-/bootstrap-material-design-0.5.9.tgz
+35 silly lockFile 428b3a70-tstrap-material-design-0-5-9-tgz https://registry.npmjs.org/bootstrap-material-design/-/bootstrap-material-design-0.5.9.tgz
+36 silly lockFile 37ad181d-bootstrap-material-design-0-5-9 bootstrap-material-design@0.5.9
+37 silly lockFile 37ad181d-bootstrap-material-design-0-5-9 bootstrap-material-design@0.5.9
+38 silly lockFile 94708cfa-bootstrap-material-design bootstrap-material-design@
+39 silly lockFile 94708cfa-bootstrap-material-design bootstrap-material-design@
+40 error Error: EACCES, mkdir '/home/anu/tmp/npm-8890-jFxpi5kk'
+40 error  { [Error: EACCES, mkdir '/home/anu/tmp/npm-8890-jFxpi5kk']
+40 error   errno: 3,
+40 error   code: 'EACCES',
+40 error   path: '/home/anu/tmp/npm-8890-jFxpi5kk' }
+41 error Please try running this command again as root/Administrator.
+42 error System Linux 3.13.0-24-generic
+43 error command "/usr/bin/nodejs" "/usr/bin/npm" "install" "bootstrap-material-design" "--user-install" "-n~/bin"
+44 error cwd /home/anu/Documents/ambulance
+45 error node -v v0.10.25
+46 error npm -v 1.3.10
+47 error path /home/anu/tmp/npm-8890-jFxpi5kk
+48 error code EACCES
+49 error errno 3
+50 error stack Error: EACCES, mkdir '/home/anu/tmp/npm-8890-jFxpi5kk'
+51 verbose exit [ 3, true ]

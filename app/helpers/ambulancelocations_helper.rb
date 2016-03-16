@@ -1,0 +1,2 @@
+module AmbulancelocationsHelper
+end
