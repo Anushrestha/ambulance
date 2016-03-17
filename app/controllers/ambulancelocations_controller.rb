@@ -29,18 +29,24 @@
          end
           @ambulancelocations = Ambulancelocation.near([cookies["latitude"], cookies["longitude"]], 20)
           @h = Gmaps4rails.build_markers(@ambulancelocations) do |ambulancelocation, marker|
+
             marker.lat ambulancelocation.latitude
             marker.lng ambulancelocation.longitude
-            marker.infowindow "$#{ambulancelocation.latitude}, #{ambulancelocation.address}"
-            marker.json({ :id => ambulancelocation.id })
+            # @aid = @ambulancelocations.ambulanceinfo_id
+
+            @status = Ambulancestatus.find_by_sql("select status from ambulancestatuses where ambulanceinfo_id=@aid")
+            
+            # marker.infowindow "$#{ambulancelocation.latitude}, #{ambulancelocation.address}"
+            # marker.json({ :id => ambulancelocation.id })
             # marker.picture({
-            #               :url    => "images/background1.jpg",
-            #               :width  => "20",
-            #               :height => "20",
+            #               :url    => "ambulance/app/assets/images/1.png",
+            #               :width  => "40",
+            #               :height => "40",
             #               :scaledWidth => "64", # Scaled width is half of the retina resolution; optional
             #                :scaledHeight => "64", # Scaled width is half of the retina resolution; optional
             #              })
-            marker.infowindow "anu"
+
+            marker.infowindow ambulancelocation.address
           end
       end
 

@@ -8091,7 +8091,8 @@ small {
 .btn, .btn-large {
   text-decoration: none;
   color: #fff;
-  background-color: #26a69a;
+  /*background-color: #26a69a;*/
+  background-color: #a50e19;
   text-align: center;
   letter-spacing: .5px;
   transition: .2s ease-out;
@@ -8099,7 +8100,7 @@ small {
 }
 
 .btn:hover, .btn-large:hover {
-  background-color: #2bbbad;
+  background-color: #a50e19;
 }
 
 .btn-floating {
@@ -10478,7 +10479,7 @@ select {
   overflow: hidden;
   position: relative;
   width: 100%;
-  height: 100px;
+  height: 65px;
   -webkit-perspective: 500px;
           perspective: 500px;
   -webkit-transform-style: preserve-3d;

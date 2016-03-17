@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Ambulanceinfos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Contact1</th>
+      <th>Contact2</th>
+      <th>Organization name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ambulanceinfos.each do |ambulanceinfo| %>
+      <tr>
+        <td><%= ambulanceinfo.name %></td>
+        <td><%= ambulanceinfo.contact1 %></td>
+        <td><%= ambulanceinfo.contact2 %></td>
+        <td><%= ambulanceinfo.organization_name %></td>
+        <td><%= link_to 'Show', ambulanceinfo %></td>
+        <td><%= link_to 'Edit', edit_ambulanceinfo_path(ambulanceinfo) %></td>
+        <td><%= link_to 'Destroy', ambulanceinfo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ambulanceinfo', new_ambulanceinfo_path %>

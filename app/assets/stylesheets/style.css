@@ -5,7 +5,15 @@
  *
  * Made By MaterializeCSS.com
  */
-
+ .container-fluid{
+  padding:none !important;
+ }
+.background-custom{
+  background: url("background1.png");
+  
+  height:380px;
+ 
+}
 nav ul a,
 nav .brand-logo {
   color: #444;

@@ -15,12 +15,7 @@
   <%= @ambulancelocation.address %>
 </p>
 
-<!-- <h3>Nearby Locations</h3>
-<ul>
-<% for ambulancelocation in @ambulancelocation.nearbys(10) %>
-  <li><%= link_to ambulancelocation.address, ambulancelocation %> (<%= ambulancelocation.distance.round(2) %> miles)</li>
-<% end %>
-</ul> -->
+
 
 <%= link_to 'Edit', edit_ambulancelocation_path(@ambulancelocation) %> |
 <%= link_to 'Back', ambulancelocations_path %>

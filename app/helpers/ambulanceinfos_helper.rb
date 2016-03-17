@@ -1,0 +1,2 @@
+module AmbulanceinfosHelper
+end
