@@ -1,3 +1,4 @@
+
     class AmbulancelocationsController < ApplicationController
       before_action :set_ambulancelocation, only: [:show, :edit, :update, :destroy]
       
@@ -23,10 +24,13 @@
       def nearby
         @ambulancecookies = cookies["latitude"],cookies["longitude"]
           @hash = Gmaps4rails.build_markers(@ambulancecookies) do |ambulancecookie, marker|
-          marker.lat cookies["latitude"]
-          marker.lng cookies["longitude"]
-          marker.infowindow "You are here."      
-         end
+            marker.lat cookies["latitude"]
+            marker.lng cookies["longitude"]
+            marker.infowindow "You are here."      
+          end
+
+         
+
           @ambulancelocations = Ambulancelocation.near([cookies["latitude"], cookies["longitude"]], 20)
           @h = Gmaps4rails.build_markers(@ambulancelocations) do |ambulancelocation, marker|
             marker.lat ambulancelocation.latitude
@@ -34,7 +38,10 @@
             @aid =ambulancelocation.ambulanceinfo_id
             
             @status = Ambulancestatus.where(ambulanceinfo_id: @aid)
-            
+
+            @test = Ambulanceinfo.joins(:ambulancelocations, :ambulancestatus).where('ambulancelocations.id' => @aid).all
+            #@test = Ambulanceinfo.joins('JOIN ambulancelocations ON ambulancelocations.ambulanceinfo_id = ambulanceinfos.id').all
+            #@test = Ambulancelocation.Ambulanceinfo.name
             # marker.infowindow "$#{ambulancelocation.latitude}, #{ambulancelocation.address}"
             # marker.json({ :id => ambulancelocation.id })
             # marker.picture({
@@ -47,7 +54,10 @@
 
             marker.infowindow ambulancelocation.address
           end
+
         end
+
+
 
       # GET /ambulancelocations/1
       # GET /ambulancelocations/1.json
