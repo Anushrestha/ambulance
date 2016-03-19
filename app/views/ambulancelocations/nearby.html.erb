@@ -14,77 +14,37 @@
                     <div class="item active">
                         <div class="row">
                           
-                            <div class="col-sm-2">
-                                <%= image_tag("busy.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
-                            </div>
-                            <div class="col-sm-2">
-                                <%= image_tag("available.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
-                            </div>
-                            <div class="col-sm-2">
-                                <%= image_tag("available.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
-                            </div>
-                            <div class="col-sm-2">
-                                <%= image_tag("available.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
-                            </div>
-                            <div class="col-sm-2">
-                                <%= image_tag("available.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
-                            </div>
-                            <div class="col-sm-2">
-                                <%= image_tag("available.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
-                            </div> 
-                        </div>
-                        <!--/row-->
-                    </div>
-                    <!--/item-->
-                    <div class="item">
-                        <div class="row">
+                          
+                            
+                            <% @ambulancelocations.each do |ambulancelocation| %>
+                            <% @al_infoid = ambulancelocation.ambulanceinfo_id%>
+                            
+                            
+                            <% @status.each do |s| %>
+                              <% @as_infoid = s.ambulanceinfo_id%>
+                              
+                              <% if (@al_infoid == @as_infoid)%>
+                              
+                                <% if (s.status == 'on') %>
+                                  <div class="col-sm-1">
+                                    <%= image_tag("available.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
+                               
+                                  </div>
 
-                            <div class="col-sm-2">
-                                <%= image_tag("available.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
-                            </div>
-                            <div class="col-sm-2">
-                                <%= image_tag("available.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
-                            </div>
-                            <div class="col-sm-2">
-                                <%= image_tag("busy.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
-                            </div>
-                            <div class="col-sm-2">
-                                <%= image_tag("available.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
-                            </div>
-                            <div class="col-sm-2">
-                                <%= image_tag("busy.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
-                            </div>
-                            <div class="col-sm-2">
-                                <%= image_tag("available.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
-                            </div> 
-                        </div>
-                        <!--/row-->
-                    </div>
-                    <!--/item-->
-                    <div class="item">
-                        <div class="row">
-                            <div class="col-sm-2">
-                                <%= image_tag("available.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
-                            </div>
-                            <div class="col-sm-2">
-                                <%= image_tag("available.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
-                            </div>
-                            <div class="col-sm-2">
-                                <%= image_tag("available.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
-                            </div>
-                            <div class="col-sm-2">
-                                <%= image_tag("available.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
-                            </div>
-                            <div class="col-sm-2">
-                                <%= image_tag("available.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
-                            </div>
-                            <div class="col-sm-2">
-                                <%= image_tag("available.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
-                            </div>
-                        </div>
-                        <!--/row-->
-                    </div>
-                    <!--/item-->
+                                  <% else %>
+                                    <div class="col-sm-1">
+                                        <%= image_tag("busy.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
+                                    </div>
+                                <%end%>
+                              <% else %>
+                              <%end%>
+
+                          <%end%>
+                          
+                          
+                        <% end %>
+
+
                 </div>
                 <!--/carousel-inner--> <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
 
@@ -95,6 +55,8 @@
         <!--/well-->
     </div>
 </div>
+
+
 
 <table class="table">
   <thead>
@@ -114,10 +76,12 @@
         <td><%= ambulancelocation.latitude %></td>
         <td><%= ambulancelocation.longitude %></td>
         <td><%= ambulancelocation.address %></td>
+         <td><%= ambulancelocation.ambulanceinfo_id %></td>
         <td><%= link_to 'Show', ambulancelocation %></td>
         <td><%= link_to 'Edit', edit_ambulancelocation_path(ambulancelocation) %></td>
         <td><%= link_to 'Destroy', ambulancelocation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+      
     <% end %>
     
   </tbody>

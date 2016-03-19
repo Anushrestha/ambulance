@@ -15,9 +15,9 @@
       def currentlocation
         @ambulancelocations = cookies["latitude"],cookies["longitude"]
         @hash = Gmaps4rails.build_markers(@ambulancelocations) do |ambulancelocation, marker|
-      marker.lat cookies["latitude"]
-      marker.lng cookies["longitude"]
-         end
+          marker.lat cookies["latitude"]
+          marker.lng cookies["longitude"]
+        end
       end
       
       def nearby
@@ -25,16 +25,15 @@
           @hash = Gmaps4rails.build_markers(@ambulancecookies) do |ambulancecookie, marker|
           marker.lat cookies["latitude"]
           marker.lng cookies["longitude"]
-          marker.infowindow "You are here."        
+          marker.infowindow "You are here."      
          end
           @ambulancelocations = Ambulancelocation.near([cookies["latitude"], cookies["longitude"]], 20)
           @h = Gmaps4rails.build_markers(@ambulancelocations) do |ambulancelocation, marker|
-
             marker.lat ambulancelocation.latitude
             marker.lng ambulancelocation.longitude
-            # @aid = @ambulancelocations.ambulanceinfo_id
-
-            @status = Ambulancestatus.find_by_sql("select status from ambulancestatuses where ambulanceinfo_id=@aid")
+            @aid =ambulancelocation.ambulanceinfo_id
+            
+            @status = Ambulancestatus.where(ambulanceinfo_id: @aid)
             
             # marker.infowindow "$#{ambulancelocation.latitude}, #{ambulancelocation.address}"
             # marker.json({ :id => ambulancelocation.id })
@@ -48,7 +47,7 @@
 
             marker.infowindow ambulancelocation.address
           end
-      end
+        end
 
       # GET /ambulancelocations/1
       # GET /ambulancelocations/1.json
