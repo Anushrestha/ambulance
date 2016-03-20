@@ -18,7 +18,6 @@
 //   $("#here").append html
 // }
 </script>
-
 <p id="notice"><%= notice %></p>
 
 <div class="row">
@@ -56,29 +55,34 @@
           <div class="carousel-inner">
             <div class="item active">
               <div class="row"> 
-                <% @ambulancelocations.each do |ambulancelocation| %>
-                  <% @al_infoid = ambulancelocation.ambulanceinfo_id%>
-                  <% @status.each do |s| %>
-                    <% @as_infoid = s.ambulanceinfo_id%>
+                <% @ambulancelocations.each do |t| %>
+                  <% @location_info_id = t.ambulanceinfo_id %>
+                  <% @status_view = Ambulancestatus.find_by('ambulanceinfo_id' => @location_info_id) %>
+                  <% @info = Ambulanceinfo.find_by_id(@location_info_id) %>
+                  
+                  <% if(@status_view)%>
 
-                    <% if (@al_infoid == @as_infoid)%>
-
-                      <% if (s.status == 'on') %>
-                        <div class="col-sm-1">
-                          <%= image_tag("available.png", :alt => "Ambulance available", :class => "img-responsive", :width => "100px") %>
-
-                        </div>
-                      <% else %>
-                        <div class="col-sm-1">
-                          <%= image_tag("busy.png", :alt => "Ambulance busy", :class => "img-responsive", :width => "100px") %>
-                        </div>
-                      <%end%>
-
-                    <% else %>
+                    <% if(@status_view.status == true)%>
+                      <div class="col-sm-2">
+                        <%= image_tag("busy.png", :alt => "Ambulance Busy", :class => "img-responsive", :width => "80px") %>
+                      </div>
+                    <% elsif(@status_view.status == false)%>
+                      <div class="col-sm-2">
+                        <%= image_tag("available.png", :alt => "Ambulance Available", :class => "img-responsive", :width => "80px") %>
+                        <b><%=t.address%></b><br/>
+                        <%= @info.contact1.to_i %><br/>
+                        <%= @info.contact2.to_i %>
+                      </div>
+                    <% else%>
+                      <div class="col-sm-2">
+                        <%= image_tag("available.png", :alt => "Ambulance Available", :class => "img-responsive", :width => "80px") %>
+                      </div>
                     <%end%>
 
+                  <%else%>
+                    <%= image_tag("busy.png", :alt => "Ambulance Busy", :class => "img-responsive", :width => "80px") %>
                   <%end%>
-                <% end %>
+                <%end%>
               </div>
               <!--/carousel-inner--> 
               <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
@@ -112,15 +116,13 @@
             
 
           <tr>
-
             <% if(@status)%>
-
-              <% if(@status.status == 1)%>
+              <% if(@status.status == true)%>
                 <td>Busy</td>
-              <% elseif(@status.status == 0)%>
+              <% elsif(@status.status == false)%>
                 <td>Available</td>
               <% else%>
-                <td>NA</td>
+                <td></td>
               <%end%>
 
             <%else%>
@@ -133,8 +135,8 @@
 
             <td><%= @info.name %></td>
             <td><%= t.address %></td>
-            <td><%= @info.contact1 %></td>
-            <td><%= @info.contact2 %></td>
+            <td><%= @info.contact1.to_i %></td>
+            <td><%= @info.contact2.to_i %></td>
             
           </tr>
           <%end%>

@@ -39,7 +39,7 @@
             
             @status = Ambulancestatus.where(ambulanceinfo_id: @aid)
 
-            @test = Ambulanceinfo.joins(:ambulancelocations, :ambulancestatus).where('ambulancelocations.id' => @aid).all
+            @test = Ambulanceinfo.joins(:ambulancelocations, :ambulanceinfos).where('ambulanceinfos.id' => @aid).all
             #@test = Ambulanceinfo.joins('JOIN ambulancelocations ON ambulancelocations.ambulanceinfo_id = ambulanceinfos.id').all
             #@test = Ambulancelocation.Ambulanceinfo.name
             # marker.infowindow "$#{ambulancelocation.latitude}, #{ambulancelocation.address}"
@@ -51,8 +51,9 @@
                           :scaledWidth => "64", # Scaled width is half of the retina resolution; optional
                            :scaledHeight => "64", # Scaled width is half of the retina resolution; optional
                          })
+            marker.infowindow render_to_string(:partial => "/ambulancelocations/infowindow", :locals => { :ambulancelocation => ambulancelocation})
+            marker.title "#{ambulancelocation.address}"
 
-            marker.infowindow ambulancelocation.address
           end
 
         end
