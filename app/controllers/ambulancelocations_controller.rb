@@ -1,3 +1,4 @@
+
     class AmbulancelocationsController < ApplicationController
       before_action :set_ambulancelocation, only: [:show, :edit, :update, :destroy]
       
@@ -15,32 +16,48 @@
       def currentlocation
         @ambulancelocations = cookies["latitude"],cookies["longitude"]
         @hash = Gmaps4rails.build_markers(@ambulancelocations) do |ambulancelocation, marker|
-      marker.lat cookies["latitude"]
-      marker.lng cookies["longitude"]
-         end
+          marker.lat cookies["latitude"]
+          marker.lng cookies["longitude"]
+        end
       end
       
       def nearby
         @ambulancecookies = cookies["latitude"],cookies["longitude"]
           @hash = Gmaps4rails.build_markers(@ambulancecookies) do |ambulancecookie, marker|
-        marker.lat cookies["latitude"]
-        marker.lng cookies["longitude"]
-        
-       end
+            marker.lat cookies["latitude"]
+            marker.lng cookies["longitude"]
+            marker.infowindow "You are here."      
+          end
+
+         
+
           @ambulancelocations = Ambulancelocation.near([cookies["latitude"], cookies["longitude"]], 20)
           @h = Gmaps4rails.build_markers(@ambulancelocations) do |ambulancelocation, marker|
-        marker.lat ambulancelocation.latitude
-        marker.lng ambulancelocation.longitude
-        marker.picture({
-                      :url    => "images/background1.jpg",
-                      :width  => "20",
-                      :height => "20",
-                      :scaledWidth => "64", # Scaled width is half of the retina resolution; optional
-                       :scaledHeight => "64", # Scaled width is half of the retina resolution; optional
-                     })
-        marker.infowindow ambulancelocation.address
-      end
-      end
+            marker.lat ambulancelocation.latitude
+            marker.lng ambulancelocation.longitude
+            @aid =ambulancelocation.ambulanceinfo_id
+            
+            @status = Ambulancestatus.where(ambulanceinfo_id: @aid)
+
+            @test = Ambulanceinfo.joins(:ambulancelocations, :ambulancestatus).where('ambulancelocations.id' => @aid).all
+            #@test = Ambulanceinfo.joins('JOIN ambulancelocations ON ambulancelocations.ambulanceinfo_id = ambulanceinfos.id').all
+            #@test = Ambulancelocation.Ambulanceinfo.name
+            # marker.infowindow "$#{ambulancelocation.latitude}, #{ambulancelocation.address}"
+            # marker.json({ :id => ambulancelocation.id })
+            marker.picture({
+                          :url    => "https://upload.wikimedia.org/wikipedia/commons/8/87/Map_marker_icon_%E2%80%93_Nicolas_Mollet_%E2%80%93_Ambulance_%E2%80%93_Health_%26_Education_%E2%80%93_Dark.png",
+                          :width  => "40",
+                          :height => "40",
+                          :scaledWidth => "64", # Scaled width is half of the retina resolution; optional
+                           :scaledHeight => "64", # Scaled width is half of the retina resolution; optional
+                         })
+
+            marker.infowindow ambulancelocation.address
+          end
+
+        end
+
+
 
       # GET /ambulancelocations/1
       # GET /ambulancelocations/1.json

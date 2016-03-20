@@ -12,68 +12,117 @@
 	<%= javascript_include_tag 'jquery-2.1.1.min.js' %>
 	<%= csrf_meta_tags %>
 
+
+
+
 </head>
 
 
 <body>
-  <nav class="red" role="navigation">
+  <!-- <nav class="red" role="navigation">
     <div class="nav-wrapper container">
       
-      <%= image_tag("logo.png", :alt => "Ambulance logo", :height => "45px") %> &nbsp;
-      <h3 class="brand-logo">Ambulance Tracker</h3>
+      <%= image_tag("logo-with-text.png", :alt => "Ambulance logo", :height => "45px") %> &nbsp;
+       <h3 class="brand-logo"><%= image_tag("logo-with-text.png", :alt => "Ambulance logo", :height => "30px") %></h3>
+
       <ul class="right hide-on-med-and-down">
         <li><a href="#">Navbar Link</a></li>
       </ul>
-
-      <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      
     </div>
+  </nav> -->
+
+
+
+  <nav class="red" role="navigation">
+    <div class="nav-wrapper container">
+    
+     <%= image_tag("logo-with-text.png", :alt => "Ambulance logo", :height => "45px") %>
+
+    </div>
+
   </nav>
 
   <%= yield %>
 
-  <footer class="page-footer red">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+  <!-- <footer class="page-footer red"> -->
+   <footer class="">
+    <div class="col-md-12">
+        <div class="well" style="opacity:0.9">
+            <div id="myCarousel" class="carousel slide" style="height:400px">
+                
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div class="row">
+                          
+                            <div class="col-sm-12">
+                                <%= image_tag("tips-heart-attack.png", :alt => "Ambulance logo", :class => "img-responsive", :height => "500px") %>
+                            </div>
+                         </div>
+                        <!--/row-->
+                    </div>
+                    <!--/item-->
+                    <div class="item">
+                        <div class="row">
 
+                            <div class="col-sm-2">
+                                <%= image_tag("available.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
+                            </div>
+                            <div class="col-sm-2">
+                                <%= image_tag("available.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
+                            </div>
+                            <div class="col-sm-2">
+                                <%= image_tag("busy.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
+                            </div>
+                            <div class="col-sm-2">
+                                <%= image_tag("available.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
+                            </div>
+                            <div class="col-sm-2">
+                                <%= image_tag("busy.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
+                            </div>
+                            <div class="col-sm-2">
+                                <%= image_tag("available.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
+                            </div> 
+                        </div>
+                        <!--/row-->
+                    </div>
+                    <!--/item-->
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <%= image_tag("available.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
+                            </div>
+                            <div class="col-sm-2">
+                                <%= image_tag("available.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
+                            </div>
+                            <div class="col-sm-2">
+                                <%= image_tag("available.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
+                            </div>
+                            <div class="col-sm-2">
+                                <%= image_tag("available.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
+                            </div>
+                            <div class="col-sm-2">
+                                <%= image_tag("available.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
+                            </div>
+                            <div class="col-sm-2">
+                                <%= image_tag("available.png", :alt => "Ambulance logo", :class => "img-responsive", :width => "100px") %>
+                            </div>
+                        </div>
+                        <!--/row-->
+                    </div>
+                    <!--/item-->
+                </div>
+                <!--/carousel-inner--> <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
 
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+            </div>
+            <!--/myCarousel-->
         </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-      </div>
+        <!--/well-->
     </div>
-    <div class="footer-copyright">
-      <div class="container">
-      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
-      </div>
-    </div>
+    
   </footer>
-
-
-
-
-
 
 </body>
 </html>

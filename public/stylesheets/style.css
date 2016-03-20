@@ -5,6 +5,10 @@
  *
  * Made By MaterializeCSS.com
  */
+.btn-red{
+  background: #a50e19;
+}
+
 
 nav ul a,
 nav .brand-logo {

@@ -5,7 +5,15 @@
  *
  * Made By MaterializeCSS.com
  */
-
+ .container-fluid{
+  padding:none !important;
+ }
+.background-custom{
+  background: url("background1.png");
+  
+  height:380px;
+ 
+}
 nav ul a,
 nav .brand-logo {
   color: #444;
@@ -57,9 +65,11 @@ footer.page-footer {
 }
 
 @font-face {
-  font-family: 'Material Icons';
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
+  src: url('/assets/font/Roboto-Bold-eot');
+  
   }
 
 .material-icons {
