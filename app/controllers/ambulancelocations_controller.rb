@@ -44,13 +44,13 @@
             #@test = Ambulancelocation.Ambulanceinfo.name
             # marker.infowindow "$#{ambulancelocation.latitude}, #{ambulancelocation.address}"
             # marker.json({ :id => ambulancelocation.id })
-            # marker.picture({
-            #               :url    => "ambulance/app/assets/images/1.png",
-            #               :width  => "40",
-            #               :height => "40",
-            #               :scaledWidth => "64", # Scaled width is half of the retina resolution; optional
-            #                :scaledHeight => "64", # Scaled width is half of the retina resolution; optional
-            #              })
+            marker.picture({
+                          :url    => "https://upload.wikimedia.org/wikipedia/commons/8/87/Map_marker_icon_%E2%80%93_Nicolas_Mollet_%E2%80%93_Ambulance_%E2%80%93_Health_%26_Education_%E2%80%93_Dark.png",
+                          :width  => "40",
+                          :height => "40",
+                          :scaledWidth => "64", # Scaled width is half of the retina resolution; optional
+                           :scaledHeight => "64", # Scaled width is half of the retina resolution; optional
+                         })
 
             marker.infowindow ambulancelocation.address
           end
