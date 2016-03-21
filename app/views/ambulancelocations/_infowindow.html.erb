@@ -1,19 +1,17 @@
-<% @ambulancelocations.each do |t|%>
-  	<% @location_info_id = t.ambulanceinfo_id %>
-    <% @status = Ambulancestatus.find_by('ambulanceinfo_id' => @location_info_id) %>
-    <% @info = Ambulanceinfo.all %>
-	<% @info.each do |info|%>
-        <%if(info.id == t.ambulanceinfo_id)%>
-            <%= info.name %>
-            <%= t.address %>
-            <%= info.contact1 %>
-            <%= info.contact2 %>
-        <%end%>
 
-    <%end%>
 
-<% end %>
 
-<!-- <h1><%= ambulancelocation.address %></h1>
-<h2>contact1: <%= ambulancelocation.latitude %></h2> 
-<h1> aaloo </h1> -->
+
+
+
+</p><b><%= ambulancelocation.address%></b></p>
+<%$a = Ambulancestatus.find_by(:ambulanceinfo_id => ambulancelocation.ambulanceinfo_id).status %>
+<% if(@a== true) %>
+    <p>Busy</p>
+<%else%>
+    <p>Available</p>
+<%end%>
+
+
+<p><%= Ambulanceinfo.find(ambulancelocation.ambulanceinfo_id).contact1.to_i %></p>
+<p><%= Ambulanceinfo.find(ambulancelocation.ambulanceinfo_id).contact2.to_i %></p>
